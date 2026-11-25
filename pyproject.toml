@@ -1,0 +1,21 @@
+[project]
+name = "ml-pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "abbywaterman", email = "abbyswaterman@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.165.0",
+    "pycaret>=3.3.2",
+    "six>=1.17.0",
+]
+
+[project.scripts]
+ml-pipeline = "ml_pipeline:main"
+
+[build-system]
+requires = ["uv_build>=0.12.8,<0.13.0"]
+build-backend = "uv_build"
