@@ -124,7 +124,7 @@ Overall test accuracy: 0.89 (rounded)
 
 ### Efficiency
 
-PyCaret was more efficient in terms of development effort, requiring approximately 16 lines of core modeling code compared with approximately 42 lines for scikit-learn. PyCaret automatically handled preprocessing, model training, and cross-validation, while scikit-learn required these steps to be defined manually. However, scikit-learn was faster in execution, taking only 0.03 seconds compared with PyCaret's 20.16 seconds. This difference is expected because PyCaret compared multiple models across cross-validation folds, whereas scikit-learn trained only the selected model. The recorded PyCaret runtime excludes confusion matrix generation.
+PyCaret was more efficient in terms of development effort, requiring 16 lines of core modeling code compared with 36 lines for scikit-learn. These counts exclude imports, comments, blank lines, and supporting code. PyCaret automatically handled preprocessing, model training, and cross-validation, while scikit-learn required these steps to be defined manually. However, scikit-learn was faster in execution, taking only 0.03 seconds compared with PyCaret's 20.16 seconds. This difference is expected because PyCaret compared multiple models across cross-validation folds, whereas scikit-learn trained only the selected model. The recorded PyCaret runtime excludes confusion matrix generation.
 
 ### Differences in Model Performance
 
@@ -133,6 +133,8 @@ PyCaret achieved an accuracy of 89.38% and a weighted F1 score of 0.8673, while 
 ### Most Important Business Metric
 
 The positive-class F1 score is the most important metric for this business problem because it balances precision and recall. Despite achieving approximately 89% accuracy, the scikit-learn model identified only 13% of actual subscribers and achieved a positive-class F1 score of 0.21. This demonstrates how accuracy can be misleading when the dataset is imbalanced. A higher positive-class F1 score would help the bank identify more potential customers while limiting resources spent on unsuccessful marketing efforts.
+
+Additionally, the Dummy Classifier achieved an accuracy of 88.46%, compared with the Ridge Classifier's 89.38%, a difference of only 0.92 percentage points. This further demonstrates that accuracy alone is insufficient for evaluating an imbalanced classification problem. Future improvements could include class weighting, resampling, or selecting models based on positive-class F1 rather than overall accuracy.
 
 ## FastAPI Model Serving
 
